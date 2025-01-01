@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.text-3d {
+  text-shadow: 2px 2px 4px rgba(172, 179, 180, 0.737), 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
