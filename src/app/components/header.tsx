@@ -1,19 +1,35 @@
 "use client";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  // { href: "#projects", label: "Projects" },
+  // { href: "#skills", label: "Skills" },
+  // { href: "#blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [isTop, setIsTop] = useState(true);
+  const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsTop(window.scrollY === 0);
+      const sections = navLinks.map((link) =>
+        document.querySelector(link.href)
+      );
+      const currentSection = sections.find((section) => {
+        if (!section) return false;
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 0 && rect.bottom >= 0;
+      });
+      if (currentSection) {
+        setActiveSection(`#${currentSection.id}`);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,18 +48,30 @@ export default function Header() {
     >
       <div className="flex flex-col items-start p-4">
         <span className="text-white font-bold text-xl">
-          Deba's Digital Space
+          <Link href={"/"}> Deba's Digital Space</Link>
         </span>
       </div>
       <nav className="flex gap-5 p-4">
         {navLinks.map((link) => (
-          <a
+          <div
             key={link.href}
-            href={link.href}
-            className="text-white  hover:underline"
+            className={`${
+              activeSection === link.href ? "border-b-2" : ""
+            } hover:border-b-2`}
           >
-            {link.label}
-          </a>
+            <a
+              href={link.href}
+              className="text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector(link.href)
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {link.label}
+            </a>
+          </div>
         ))}
       </nav>
     </header>

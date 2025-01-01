@@ -3,9 +3,9 @@ import { FaGithub, FaFileAlt } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="bg-black h-screen relative flex items-center justify-center">
+    <div className="bg-slate-800 h-screen relative flex items-center justify-center">
       <Image
-        src="/images/background.jpg"
+        src="/images/background1.jpg"
         alt="Background Image"
         layout="fill"
         objectFit="cover"
@@ -15,7 +15,7 @@ export default function Hero() {
         <h1 className="text-5xl font-bold mb-4 text-3d text-gray-200 ">
           Welcome to My Digital World
         </h1>
-        <p className="text-xl leading-relaxed mb-6 text-gray-300">
+        <p className="text-xl leading-relaxed mb-10 text-gray-300">
           I'm a Computer Science and Engineering student specializing in full
           stack web development, app development, and a growing expertise in
           cyber security.
@@ -25,7 +25,7 @@ export default function Hero() {
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-600 transition flex items-center gap-2"
+            className="bg-[#836FFF] text-white px-6 py-3 page-corner hover:bg-[#211951] transition flex items-center gap-2 shadow-lg transform hover:scale-105 font-semibold"
           >
             <FaGithub />
             GitHub
@@ -34,7 +34,7 @@ export default function Hero() {
             href="/path/to/your/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-600 transition flex items-center gap-2"
+            className="bg-[#548CFF] text-white px-6 py-3 page-corner hover:bg-[#000D6B] transition flex items-center gap-2 shadow-lg transform hover:scale-105 font-semibold"
           >
             <FaFileAlt />
             Resume
