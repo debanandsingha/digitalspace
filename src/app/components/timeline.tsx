@@ -64,10 +64,10 @@ export default function Timeline({ id, header, items }: TimelineProps) {
   return (
     <div
       id={id}
-      className="bg-gray-900 bg-opacity-90 flex flex-col items-center justify-center text-white py-7 px-6 border-t border-b border-cyan-600 shadow-2xl"
+      className="bg-gray-900 bg-opacity-90 flex flex-col items-center justify-center  py-7 px-6 border-t border-b border-[#4E31AA] shadow-2xl"
       ref={sectionRef}
     >
-      <h1 className="text-6xl font-extrabold mb-5 text-cyan-500 tracking-wide">
+      <h1 className="text-6xl font-extrabold mb-5 text-[#836FFF] tracking-wide">
         {header}
       </h1>
       <div className="w-full md:w-4/5 relative">
