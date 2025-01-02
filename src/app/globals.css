@@ -38,3 +38,131 @@
 .hex-button:hover {
   background-color: #0d8ddb;
 }
+
+.timeline {
+  position: relative;
+  padding: 0 0 0 0;
+  list-style: none;
+  opacity: 0;
+}
+
+.timeline.visible {
+  opacity: 1;
+  animation: grow 2s ease-out forwards;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  width: 4px;
+  background: #1da1f2;
+  left: 25%;
+  margin-left: -2px;
+  height: 0;
+  transition: height 2s ease-out, top 2s ease-out;
+}
+
+.timeline.visible::before {
+  height: 100%;
+  top: 0;
+}
+
+.timeline-item {
+  margin: 20px 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: calc(var(--index) * 0.4s);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1da1f2;
+  margin-left: -8px;
+  top: 0;
+  border: 4px solid #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: calc(var(--index) * 0.4s);
+}
+
+.timeline-item.visible::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+}
+
+.timeline-item.animated::before {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+}
+
+@keyframes grow {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  to {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+}
+
+@keyframes blinkAppear {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.bg-blink-appear {
+  animation: blinkAppear 10s ease-out forwards;
+}

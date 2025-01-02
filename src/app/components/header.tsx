@@ -5,10 +5,8 @@ import React, { useState, useEffect } from "react";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  // { href: "#projects", label: "Projects" },
-  // { href: "#skills", label: "Skills" },
-  // { href: "#blog", label: "Blog" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -19,22 +17,36 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsTop(window.scrollY === 0);
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href)
-      );
-      const currentSection = sections.find((section) => {
-        if (!section) return false;
-        const rect = section.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom >= 0;
-      });
-      if (currentSection) {
-        setActiveSection(`#${currentSection.id}`);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "0px 0px -50% 0px" }
+    );
+
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
     };
   }, []);
 
@@ -56,12 +68,12 @@ export default function Header() {
           <div
             key={link.href}
             className={`${
-              activeSection === link.href ? "border-b-2" : ""
-            } hover:border-b-2`}
+              activeSection === link.href ? "border-b-4 border-[#836FFF]" : ""
+            } hover:border-b-4 hover:border-[#836FFF]`}
           >
             <a
               href={link.href}
-              className="text-white"
+              className="text-white font-semibold"
               onClick={(e) => {
                 e.preventDefault();
                 document

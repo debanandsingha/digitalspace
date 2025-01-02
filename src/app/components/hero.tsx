@@ -3,13 +3,16 @@ import { FaGithub, FaFileAlt } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="bg-slate-800 h-screen relative flex items-center justify-center">
+    <div
+      id="home"
+      className="bg-slate-800 h-screen relative flex items-center justify-center"
+    >
       <Image
         src="/images/background1.jpg"
         alt="Background Image"
         layout="fill"
         objectFit="cover"
-        className="opacity-35"
+        className="opacity-35 bg-blink-appear"
       />
       <div className="absolute text-center text-white w-2/3">
         <h1 className="text-5xl font-bold mb-4 text-3d text-gray-200 ">
