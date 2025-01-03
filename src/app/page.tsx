@@ -1,6 +1,7 @@
 import Hero from "./components/hero";
 import About from "./components/about";
 import Timeline from "./components/timeline";
+import Education from "./components/education";
 
 const experiencesData = [
   {
@@ -23,17 +24,18 @@ const experiencesData = [
 const educationData = [
   {
     date: "Sep 2015 - Jun 2019",
-    position: "Bachelor of Science in Computer Science",
-    company: "University Name",
-    description:
-      "Studied various computer science topics including algorithms, data structures, and software engineering principles.",
+    degree: "Bachelor of Science in Computer Science",
+    institution: "University Name",
   },
   {
     date: "Sep 2013 - Jun 2015",
-    position: "High School Diploma",
-    company: "High School Name",
-    description:
-      "Focused on science and mathematics, participated in various extracurricular activities and competitions.",
+    degree: "High School Diploma",
+    institution: "High School Name",
+  },
+  {
+    date: "Sep 2013 - Jun 2015",
+    degree: "High School Diploma",
+    institution: "High School Name",
   },
   // Add more education details as needed
 ];
@@ -44,7 +46,8 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline id="experience" header="Experience" items={experiencesData} />
-      <Timeline id="education" header="Education" items={educationData} />
+      {/* <Timeline id="education" header="Education" items={educationData} /> */}
+      <Education id="education" header="Education" items={educationData} />
       <div
         id="contact"
         className="h-screen flex items-center justify-center text-white"

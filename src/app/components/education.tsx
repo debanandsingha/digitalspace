@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { FaGraduationCap } from "react-icons/fa"; // Import the icon
 
-interface TimelineProps {
+interface EducationProps {
   id: string;
   header: string;
   items: {
     date: string;
-    position: string;
-    company: string;
-    description: string;
+    degree: string;
+    institution: string;
   }[];
 }
 
-export default function Timeline({ id, header, items }: TimelineProps) {
+export default function Education({ id, header, items }: EducationProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,10 +30,10 @@ export default function Timeline({ id, header, items }: TimelineProps) {
     );
 
     let items: NodeListOf<Element> = sectionRef.current?.querySelectorAll(
-      ".timeline-item"
+      ".timeline-item-horizontal"
     ) as NodeListOf<Element>;
     if (sectionRef.current) {
-      items = sectionRef.current.querySelectorAll(".timeline-item");
+      items = sectionRef.current.querySelectorAll(".timeline-item-horizontal");
       items.forEach((item) => observer.observe(item));
     }
 
@@ -43,7 +43,7 @@ export default function Timeline({ id, header, items }: TimelineProps) {
   }, []);
 
   useEffect(() => {
-    const timeline = sectionRef.current?.querySelector(".timeline");
+    const timeline = sectionRef.current?.querySelector(".timeline-horizontal");
     if (timeline) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -64,37 +64,30 @@ export default function Timeline({ id, header, items }: TimelineProps) {
   return (
     <div
       id={id}
-      className="bg-gradient-to-r from-gray-700 via-gray-900 to-black flex flex-col items-center justify-center py-16 px-8  w-full border-b"
+      className="bg-gradient-to-r from-gray-700 via-gray-900 to-black flex flex-col items-center justify-center py-16 px-8  shadow- w-full h-80"
       ref={sectionRef}
     >
       <h1 className="text-5xl font-bold mb-6 text-[#836FFF] tracking-wide">
         {header}
       </h1>
       <div className="w-full md:w-4/5 relative">
-        <ul className="timeline">
+        <ul className="timeline-horizontal">
           {items.map((item, index) => (
             <li
-              className="timeline-item"
+              className="timeline-item-horizontal"
               key={index}
               style={{ "--index": index } as React.CSSProperties}
             >
-              <div className="flex flex-col md:flex-row mb-12">
-                <div className="w-full md:w-1/4 text-right pr-8">
-                  <p className="text-lg font-semibold text-cyan-400">
-                    {item.date}
-                  </p>
-                  <p className="text-md italic text-cyan-300">
-                    {item.position}
-                  </p>
-                </div>
-                <div className="w-full md:w-3/4 pl-8">
-                  <h2 className="text-3xl font-semibold text-cyan-500">
-                    {item.company}
-                  </h2>
-                  <p className="text-lg mt-2 text-cyan-200">
-                    {item.description}
-                  </p>
-                </div>
+              <div className="icon">
+                <FaGraduationCap className="text-4xl text-cyan-400 mb-4" />
+              </div>
+              <div className="content">
+                <p className="text-lg font-semibold text-cyan-400">
+                  {item.date}
+                </p>
+                <h2 className="text-2xl font-semibold text-white">
+                  {item.institution}
+                </h2>
               </div>
             </li>
           ))}

@@ -2,9 +2,9 @@ export default function About() {
   return (
     <div
       id="about"
-      className="h-96 flex items-center justify-center text-white"
+      className="h-96 py-7 flex items-center justify-center text-white"
     >
-      <h1>About Section</h1>
+      <div className="border w-5/6 h-full"></div>
     </div>
   );
 }
