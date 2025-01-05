@@ -8,13 +8,11 @@
 }
 
 .page-corner {
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 12px),
-    calc(100% - 12px) 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0,
+      100% 0,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      0 100%);
 }
 
 .hex-button {
@@ -29,14 +27,12 @@
   color: white;
   text-decoration: none;
   font-size: 24px;
-  clip-path: polygon(
-    25% 6.7%,
-    75% 6.7%,
-    100% 50%,
-    75% 93.3%,
-    25% 93.3%,
-    0% 50%
-  );
+  clip-path: polygon(25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%);
 }
 
 .hex-button:hover {
@@ -211,6 +207,25 @@
   @apply font-serif text-xl font-bold text-orange-600;
 }
 
+.about-container {
+  background: linear-gradient(135deg, #1da1f2 0%, #0d8ddb 100%);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.about-container h1 {
+  @apply text-3xl font-bold;
+}
+
+.about-container p {
+  @apply text-lg mt-4;
+}
+
 @keyframes grow {
   from {
     height: 0;
@@ -259,14 +274,4 @@
 
 .bg-blink-appear {
   animation: blinkAppear 10s ease-out forwards;
-}
-
-@keyframes growHorizontal {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
-  }
 }

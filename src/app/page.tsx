@@ -46,14 +46,7 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline id="experience" header="Experience" items={experiencesData} />
-      {/* <Timeline id="education" header="Education" items={educationData} /> */}
       <Education id="education" header="Education" items={educationData} />
-      <div
-        id="contact"
-        className="h-screen flex items-center justify-center text-white"
-      >
-        <h1>Contact Section</h1>
-      </div>
     </div>
   );
 }

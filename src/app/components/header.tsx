@@ -78,7 +78,7 @@ export default function Header() {
                 e.preventDefault();
                 document
                   .querySelector(link.href)
-                  ?.scrollIntoView({ behavior: "smooth" });
+                  ?.scrollIntoView({ behavior: "smooth", block: "center" });
               }}
             >
               {link.label}

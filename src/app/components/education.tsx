@@ -64,10 +64,10 @@ export default function Education({ id, header, items }: EducationProps) {
   return (
     <div
       id={id}
-      className="bg-gradient-to-r from-gray-700 via-gray-900 to-black flex flex-col items-center justify-center py-16 px-8  shadow- w-full h-80"
+      className="bg-gradient-to-r from-gray-700 via-gray-950 to-black flex flex-col items-center justify-center px-8  w-full h-80"
       ref={sectionRef}
     >
-      <h1 className="text-5xl font-bold mb-6 text-[#836FFF] tracking-wide">
+      <h1 className="text-6xl font-bold mb-6 text-[#836FFF] tracking-wide">
         {header}
       </h1>
       <div className="w-full md:w-4/5 relative">
@@ -82,10 +82,10 @@ export default function Education({ id, header, items }: EducationProps) {
                 <FaGraduationCap className="text-4xl text-cyan-400 mb-4" />
               </div>
               <div className="content">
-                <p className="text-lg font-semibold text-cyan-400">
+                <p className="text-md font-semibold text-cyan-400">
                   {item.date}
                 </p>
-                <h2 className="text-2xl font-semibold text-white">
+                <h2 className="text-xl font-semibold text-white">
                   {item.institution}
                 </h2>
               </div>

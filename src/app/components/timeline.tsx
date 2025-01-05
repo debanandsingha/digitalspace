@@ -64,10 +64,10 @@ export default function Timeline({ id, header, items }: TimelineProps) {
   return (
     <div
       id={id}
-      className="bg-gradient-to-r from-gray-700 via-gray-900 to-black flex flex-col items-center justify-center py-16 px-8  w-full border-b"
+      className="bg-gradient-to-r from-gray-700 via-gray-950 to-black flex flex-col items-center justify-center py-10 px-8  w-full border-b border-dashed"
       ref={sectionRef}
     >
-      <h1 className="text-5xl font-bold mb-6 text-[#836FFF] tracking-wide">
+      <h1 className="text-6xl font-bold text-[#836FFF] tracking-wide">
         {header}
       </h1>
       <div className="w-full md:w-4/5 relative">
@@ -80,18 +80,18 @@ export default function Timeline({ id, header, items }: TimelineProps) {
             >
               <div className="flex flex-col md:flex-row mb-12">
                 <div className="w-full md:w-1/4 text-right pr-8">
-                  <p className="text-lg font-semibold text-cyan-400">
+                  <p className="text-md font-semibold text-cyan-400">
                     {item.date}
                   </p>
-                  <p className="text-md italic text-cyan-300">
+                  <p className="text-sm italic text-cyan-300">
                     {item.position}
                   </p>
                 </div>
                 <div className="w-full md:w-3/4 pl-8">
-                  <h2 className="text-3xl font-semibold text-cyan-500">
+                  <h2 className="text-2xl font-semibold text-cyan-500">
                     {item.company}
                   </h2>
-                  <p className="text-lg mt-2 text-cyan-200">
+                  <p className="text-md mt-2 text-cyan-200">
                     {item.description}
                   </p>
                 </div>
