@@ -64,7 +64,7 @@ export default function Education({ id, header, items }: EducationProps) {
   return (
     <div
       id={id}
-      className="bg-gradient-to-r from-gray-700 via-gray-950 to-black flex flex-col items-center justify-center px-8  w-full h-80"
+      className="bg-gradient-to-r from-gray-700 via-gray-950 to-black flex flex-col items-center justify-center px-8  w-full h-80 border-b border-dashed"
       ref={sectionRef}
     >
       <h1 className="text-6xl font-bold mb-6 text-[#836FFF] tracking-wide">

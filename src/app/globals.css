@@ -39,6 +39,24 @@
   background-color: #0d8ddb;
 }
 
+.custom-shape {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-shape:hover {
+  transform: scale(1.05);
+}
+
+.custom-rect-shape {
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-rect-shape:hover {
+  transform: scale(1.05);
+}
+
 .timeline {
   position: relative;
   padding: 0 0 0 0;

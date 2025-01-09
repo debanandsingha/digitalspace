@@ -2,6 +2,8 @@ import Hero from "./components/hero";
 import About from "./components/about";
 import Timeline from "./components/timeline";
 import Education from "./components/education";
+import Contact from "./components/contact"; // Import the Contact component
+import Skills from "./components/skills";
 
 const experiencesData = [
   {
@@ -47,6 +49,8 @@ export default function Home() {
       <About />
       <Timeline id="experience" header="Experience" items={experiencesData} />
       <Education id="education" header="Education" items={educationData} />
+      <Skills />
+      <Contact /> {/* Add the Contact component */}
     </div>
   );
 }
