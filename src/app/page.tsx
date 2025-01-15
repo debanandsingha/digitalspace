@@ -1,56 +1,29 @@
-import Hero from "./components/hero";
-import About from "./components/about";
-import Timeline from "./components/timeline";
-import Education from "./components/education";
-import Contact from "./components/contact"; // Import the Contact component
-import Skills from "./components/skills";
-
-const experiencesData = [
-  {
-    date: "Jan 2020 - Dec 2021",
-    position: "Developer",
-    company: "Company Name",
-    description:
-      "Worked on developing and maintaining web applications, collaborating with cross-functional teams to deliver high-quality software solutions.",
-  },
-  {
-    date: "Jan 8 - Dec 2019",
-    position: "Junior Developer",
-    company: "Another Company",
-    description:
-      "Assisted in the development of web applications, performed code reviews, and contributed to team meetings to improve project outcomes.",
-  },
-  // Add more experiences as needed
-];
-
-const educationData = [
-  {
-    date: "Sep 2015 - Jun 2019",
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University Name",
-  },
-  {
-    date: "Sep 2013 - Jun 2015",
-    degree: "High School Diploma",
-    institution: "High School Name",
-  },
-  {
-    date: "Sep 2013 - Jun 2015",
-    degree: "High School Diploma",
-    institution: "High School Name",
-  },
-  // Add more education details as needed
-];
+"use client";
+import { useRef } from "react";
+import Navbar from "./components/navbar";
+import AboutMe from "./components/aboutMe";
 
 export default function Home() {
+  const rightContainerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="min-h-screen bg-slate-900">
-      <Hero />
-      <About />
-      <Timeline id="experience" header="Experience" items={experiencesData} />
-      <Education id="education" header="Education" items={educationData} />
-      <Skills />
-      <Contact /> {/* Add the Contact component */}
+    <div className="h-screen overflow-auto">
+      {/* Left Container */}
+      <div className="h-full w-[40%] border fixed p-1">
+        <div className=" w-full h-full text text-5xl">LEFT</div>
+      </div>
+      {/* Right Container */}
+      <div
+        className="h-full w-[60%] fixed right-0 overflow-auto"
+        ref={rightContainerRef}
+      >
+        <Navbar containerRef={rightContainerRef} />
+
+        <AboutMe />
+        <div className="bg-purple-200 w-full h-[200vh] text text-5xl">
+          2. RIGHT
+        </div>
+      </div>
     </div>
   );
 }
