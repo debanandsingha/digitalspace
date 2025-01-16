@@ -38,7 +38,7 @@ export default function Navbar({ containerRef }: NavbarProps) {
         initial={{ opacity: 1 }}
         animate={{ opacity: isScrolled ? 0 : 1 }}
         transition={{ duration: 0.5 }}
-        className={`bg-black bg-opacity-60 p-4 sticky top-0`}
+        className={`bg-[#121212] bg-opacity-80 p-4 sticky top-0`}
       >
         <ul className="flex justify-end space-x-4">
           <li className="text-white">
@@ -64,7 +64,7 @@ export default function Navbar({ containerRef }: NavbarProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-gray-800 fixed p-10 h-56 right-0 top-0"
+          className="bg-[#121212] bg-opacity-80 fixed p-10 h-56 right-0 top-0"
         >
           <ul className="flex flex-col justify-center">
             <li className="text-white">
